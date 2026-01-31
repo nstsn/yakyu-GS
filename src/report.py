@@ -92,7 +92,10 @@ def generate_markdown_report(overall_summary, stage_summary, output_path):
 **「まだまだ点は入るぞ！」**
 
 ---
-*データソース: NPB公式記録 2018-2025（独自集計）*
+*データ出典:*
+- *本統計は Lukas Pluckhahn 氏による NPB 統計コンパイル [yakyuu](https://github.com/pluckhahn/yakyuu) (yakyuu.jp) の情報に基づき、独自に集計・分析したものです。*
+- *プロ野球の公式記録・統計情報の著作権は、日本プロ野球機構（NPB）およびその加盟球団に帰属します。*
+
 *検証コード: [GitHub Repository Link]*
 """
     

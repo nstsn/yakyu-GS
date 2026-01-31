@@ -127,9 +127,9 @@ export default function HeroStory({ onComplete }: HeroStoryProps) {
                         <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse delay-150" />
                         <div className="w-20 h-0.5 bg-slate-700 self-center" />
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-light leading-relaxed text-slate-300">
+                    <h2 className="text-xl md:text-2xl font-light leading-relaxed text-slate-300">
                         本当にそうなのか？<br />
-                        実際のプロ野球データ（2018-2025）で、<br />その<span className="text-cyan-400 font-medium border-b border-cyan-400/30 pb-1">「思い込み」</span>を確かめてみることにしました。
+                        実際のプロ野球データ（2018-2025）で、その<span className="text-cyan-400 font-medium border-b border-cyan-400/30 pb-1">「思い込み」</span>を確かめてみることにしました。
                     </h2>
                     <p className="mt-12 text-slate-500 text-sm italic opacity-40">Analyzing all games from 2018 to 2025...</p>
                 </div>

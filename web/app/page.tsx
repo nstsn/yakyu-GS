@@ -85,7 +85,8 @@ export default async function Home() {
                 検証：勢いは止まるのか？
               </h1>
               <div className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                <span className="text-cyan-400 font-bold">満塁ホームラン</span> と
+                2018年〜2025年の
+                <span className="text-cyan-400 font-bold ml-1">満塁ホームラン</span> と
                 <span className="text-slate-300 font-bold"> それ以外のビッグイニング（4点）</span>
                 の「その後」を徹底比較。
               </div>
@@ -103,7 +104,7 @@ export default async function Home() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
                     </span>
-                    <h2 className="text-xl text-cyan-400 font-semibold">満塁ホームラン(GS)後</h2>
+                    <h2 className="text-xl text-cyan-400 font-semibold">満塁ホームラン後</h2>
                   </div>
 
                   <div className="flex items-baseline gap-2 mb-1">
@@ -199,7 +200,7 @@ export default async function Home() {
                         {/* GS Bar */}
                         <div>
                           <div className="flex justify-between text-xs mb-1">
-                            <span className="text-cyan-400 font-bold">満塁弾 (GS)</span>
+                            <span className="text-cyan-400 font-bold">満塁ホームラン</span>
                             <span className="text-cyan-400 font-mono text-base">{gsRate9.toFixed(2)}</span>
                           </div>
                           <div className="h-3 w-full bg-slate-700/50 rounded-full overflow-hidden">
@@ -213,7 +214,7 @@ export default async function Home() {
                         {/* Non-GS Bar */}
                         <div>
                           <div className="flex justify-between text-xs mb-1">
-                            <span className="text-slate-300 font-semibold">その他 (Non-GS)</span>
+                            <span className="text-slate-300 font-semibold">その他 (4点イニング)</span>
                             <span className="text-slate-300 font-mono text-base">{nonGsRate9.toFixed(2)}</span>
                           </div>
                           <div className="h-3 w-full bg-slate-700/50 rounded-full overflow-hidden">
@@ -287,7 +288,7 @@ export default async function Home() {
                                       {/* Triangle pointer */}
                                       <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
 
-                                      <div className="text-slate-400 mb-2 text-center text-[10px] tracking-wider uppercase">Running Score</div>
+                                      <div className="text-slate-400 mb-2 text-center text-[10px] tracking-wider uppercase">Running Score (9回まで)</div>
 
                                       <table className="border-collapse">
                                         <thead>
@@ -370,6 +371,10 @@ export default async function Home() {
                   <p>
                     これって本当なんでしょうか？<br />
                     プロ野球のデータ（合計 {gsCount + nonGsCount} 件のビッグイニング）を使って、ガチで検証してみました。
+                    <br />
+                    <span className="text-xs text-slate-500 mt-2 block">
+                      ※本検証では、満塁弾がもたらす直接的な影響力の範囲を正確に測るため、延長戦などは含めず、**「9回終了時点まで」**の得点推移を比較対象としています。
+                    </span>
                   </p>
 
                   <div className="my-10 bg-gradient-to-r from-emerald-900/30 to-slate-900/30 p-6 rounded-xl border-l-4 border-emerald-500">
@@ -447,7 +452,7 @@ export default async function Home() {
                       🔍 今後の深掘り課題：得点の「理由」を考える
                     </h4>
                     <p className="text-sm text-slate-400 mb-6 font-sans">
-                      今回の分析では「GSの後の得点率」を機械的に集計しましたが、個別の試合を見ると、数字だけでは語れないドラマがありました。
+                      今回の分析では「満塁ホームラン後の得点率」を機械的に集計しましたが、個別の試合を見ると、数字だけでは語れないドラマがありました。
                     </p>
 
                     <div className="bg-slate-900/60 rounded-2xl p-6 border border-white/5">
@@ -467,7 +472,7 @@ export default async function Home() {
                             「この後半の得点は、満塁弾の『勢い』なのか。それとも逆転されたことによる『反撃の意志』なのか？」
                           </p>
                           <p className="mt-4 text-slate-300 font-sans">
-                            今回の統計ではこれらも「GS後の得点」としてカウントされていますが、得点の背景にある「点差の変化」や「試合展開」を考慮することで、より本質的な「打線の心理」に迫れるかもしれません。
+                            今回の統計ではこれらも「満塁ホームラン後の得点」としてカウントされていますが、得点の背景にある「点差の変化」や「試合展開」を考慮することで、より本質的な「打線の心理」に迫れるかもしれません。
                           </p>
                         </div>
                         <div className="md:w-56 w-full bg-slate-800 rounded-lg p-3 font-mono text-[10px] border border-white/5 opacity-80 shadow-inner">
@@ -508,9 +513,19 @@ export default async function Home() {
           </div>
 
           {/* Footer */}
-          <footer className="py-12 text-center text-slate-600 text-sm border-t border-white/5 mt-12">
+          <footer className="py-12 text-center text-slate-600 text-sm border-t border-white/5 mt-12 bg-slate-950/20 backdrop-blur-sm">
             <p>© 2026 NPB Grand Slam Analysis Project.</p>
-            <p className="mt-2 text-xs">Data source: Internal Database (2018-2025 seasons)</p>
+            <div className="mt-4 space-y-1 text-[10px] md:text-xs">
+              <p>
+                Data source: <span className="text-slate-400">Internal Database (2018-2025 seasons)</span>
+              </p>
+              <p>
+                Database compiled and processed by <a href="https://github.com/pluckhahn/yakyuu" target="_blank" rel="noopener noreferrer" className="text-cyan-500/70 hover:text-cyan-400 transition-colors underline decoration-cyan-500/20">Lukas Pluckhahn (yakyuu.jp)</a>
+              </p>
+              <p className="opacity-50">
+                All underlying player stats and game results are property of Nippon Professional Baseball (NPB).
+              </p>
+            </div>
           </footer>
         </div>
       </DashboardWrapper>

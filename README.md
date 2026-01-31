@@ -76,4 +76,12 @@ npm run dev
 
 ## 著作権・ライセンス
 本プロジェクトのソースコードは MIT License です。
-分析に使用している元データ（`yakyuu.db`）および生成された集計データの権利は、データの提供元または管理者に帰属します。
+
+### データ出典・謝辞
+本分析に使用している野球データは、以下の方々および組織の成果に基づいています。
+
+- **データ作成・加工 (Compilation & Processing)**: [Lukas Pluckhahn](https://github.com/pluckhahn) 氏による [yakyuu](https://github.com/pluckhahn/yakyuu) リポジトリの成果物を使用させていただきました。
+- **元データ出典 (Original Data Source)**: 日本プロ野球機構 (NPB) およびその加盟球団に帰属します。
+
+データ利活用にあたっては、Lukas Pluckhahn 氏による[法的告知および利用条件](https://github.com/pluckhahn/yakyuu#compilation--software--lukas-pluckhahn-2025)を遵守し、個人利用・研究目的で活用しています。
+素晴らしいデータのコンパイルに深く感謝いたします。

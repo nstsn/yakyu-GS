@@ -68,6 +68,9 @@ def process_grandslams(events_df, games_df):
         runs_total = 0
         innings_count = 0
         
+        runs_total = 0
+        innings_count = 0
+        
         # Sum runs from (current inning + 1) to 9
         for i in range(inning_no + 1, 10):
             col_name = f"{side}_inn{i}"
@@ -76,7 +79,6 @@ def process_grandslams(events_df, games_df):
                 innings_count += 1
         
         # Team Total 1-9
-        # (Assuming games table has columns like home_inn1...9)
         team_total = 0
         for i in range(1, 10):
             col_name = f"{side}_inn{i}"
@@ -190,17 +192,6 @@ def extract_high_scoring_innings(games_df, threshold=4):
         innings_count = 0
         
         for i in range(inning_no + 1, 10):
-            # suffixed columns from merge have _x _y? No, we merged on game_id.
-            # But wait, high_df has home_team_id, games_df has home_team_id.
-            # merge will create suffixes if cols overlap.
-            # id_vars are shared.
-            
-            # Actually, `games_df` columns were NOT in `high_df` except id_vars.
-            # Ah, wait. `high_df` was created from `games_df`. It has `home_team_id` etc.
-            # So `pd.merge` will duplicate these columns unless we overlap them.
-            # Easier: pass the Series from games_df directly using game_id lookup? No.
-            
-            # Let's just assume columns are accessible.
             col_name = f"{side}_inn{i}"
             if col_name in row and pd.notnull(row[col_name]):
                 runs_total += row[col_name]
