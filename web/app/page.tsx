@@ -197,10 +197,25 @@ export default async function Home() {
                   const scale = maxVal > 0 ? maxVal : 1;
 
                   return (
-                    <div key={stageName} className="bg-slate-900/50 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors animate-reveal stagger-2">
-                      <h4 className="text-slate-400 text-sm font-semibold uppercase tracking-wider mb-4 flex items-center justify-between">
+                    <div key={stageName} className={`group/stage relative p-6 rounded-2xl transition-all duration-500 animate-reveal stagger-2 ${stageName.includes('Mid')
+                      ? 'bg-[#1a0b02]/60 border border-orange-500/30 hover:bg-[#2a0f05]/80 shadow-[0_0_30px_rgba(255,69,0,0.1)] animate-fire'
+                      : 'bg-slate-900/50 border border-white/5 hover:border-white/10'
+                      }`}>
+                      {stageName.includes('Mid') && (
+                        <>
+                          <div className="absolute inset-0 bg-gradient-to-t from-orange-600/5 via-transparent to-transparent pointer-events-none rounded-2xl"></div>
+                          <div className="absolute top-2 right-2 flex gap-1">
+                            <span className="w-1 h-1 bg-orange-500 rounded-full animate-ping"></span>
+                            <span className="w-1 h-1 bg-red-500 rounded-full animate-ping delay-100"></span>
+                          </div>
+                        </>
+                      )}
+                      <h4 className={`text-sm font-semibold uppercase tracking-wider mb-4 flex items-center justify-between ${stageName.includes('Mid') ? 'text-orange-400' : 'text-slate-400'}`}>
                         {stageName.replace('Early', '序盤').replace('Mid', '中盤').replace('Late', '終盤')}
-                        <span className="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-500">{stageName.replace(' (', '').replace(')', '')}</span>
+                        {stageName.includes('Mid') && <span className="ml-2">🔥</span>}
+                        <span className={`text-[10px] px-2 py-0.5 rounded ${stageName.includes('Mid') ? 'bg-orange-500/20 text-orange-300' : 'bg-slate-800 text-slate-500'}`}>
+                          {stageName.replace(' (', '').replace(')', '')}
+                        </span>
                       </h4>
 
                       <div className="space-y-6">
@@ -396,28 +411,28 @@ export default async function Home() {
                   <p>
                     「その後、もし9回まで試合が続いたとしたら何点入るペースか」で比較すると、圧倒的な差が出ました。
                   </p>
-                  <ul className="list-none pl-0 space-y-4 my-6">
-                    <li className="flex items-center gap-4 bg-slate-900/50 p-4 rounded-lg">
-                      <span className="w-12 h-12 flex items-center justify-center bg-cyan-500/20 text-cyan-400 rounded-full font-bold text-xl">VS</span>
+                  <ul className="list-none pl-0 space-y-4 my-6 not-prose">
+                    <li className="flex items-center gap-4 bg-slate-900/50 p-4 rounded-xl border border-white/5 animate-reveal stagger-1">
+                      <span className="w-12 h-12 flex items-center justify-center bg-orange-500/20 text-orange-400 rounded-full font-bold text-xl shadow-[0_0_15px_rgba(255,69,0,0.2)]">VS</span>
                       <div className="flex-1">
                         <div className="flex justify-between items-end mb-1">
-                          <span className="font-bold text-white">満塁ホームラン後</span>
-                          <span className="font-mono text-2xl text-cyan-400 font-bold">{(gsStats?.post_run_rate_mean! * 9).toFixed(2)} <span className="text-sm text-slate-400 font-normal">点ペース</span></span>
+                          <span className="font-bold text-white flex items-center gap-2">満塁ホームラン後 <span className="text-[10px] animate-pulse">🔥</span></span>
+                          <span className="font-mono text-2xl text-orange-400 font-bold drop-shadow-sm">{(gsStats?.post_run_rate_mean! * 9).toFixed(2)} <span className="text-sm text-slate-400 font-normal">点ペース</span></span>
                         </div>
-                        <div className="w-full bg-slate-700/50 h-2 rounded-full overflow-hidden">
-                          <div className="bg-cyan-500 h-full" style={{ width: '100%' }}></div>
+                        <div className="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden border border-white/5">
+                          <div className="bg-gradient-to-r from-orange-600 via-orange-400 to-yellow-300 h-full animate-grow-x shadow-[0_0_10px_rgba(255,165,0,0.5)]" style={{ width: '100%' }}></div>
                         </div>
                       </div>
                     </li>
-                    <li className="flex items-center gap-4 bg-slate-900/50 p-4 rounded-lg opacity-75">
+                    <li className="flex items-center gap-4 bg-slate-900/50 p-4 rounded-xl border border-white/5 opacity-80 animate-reveal stagger-2">
                       <span className="w-12 h-12"></span>
                       <div className="flex-1">
                         <div className="flex justify-between items-end mb-1">
-                          <span className="font-bold text-slate-300">その他ビッグイニング後</span>
+                          <span className="font-bold text-slate-400">HR以外の得点追加後</span>
                           <span className="font-mono text-xl text-slate-300 font-bold">{(nonGsStats?.post_run_rate_mean! * 9).toFixed(2)} <span className="text-sm text-slate-500 font-normal">点ペース</span></span>
                         </div>
-                        <div className="w-full bg-slate-700/50 h-2 rounded-full overflow-hidden">
-                          <div className="bg-slate-500 h-full" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
+                        <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden border border-white/5">
+                          <div className="bg-slate-500 h-full animate-grow-x stagger-1" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
                         </div>
                       </div>
                     </li>
