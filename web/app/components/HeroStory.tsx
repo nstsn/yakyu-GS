@@ -31,8 +31,10 @@ export default function HeroStory({ onComplete }: HeroStoryProps) {
         if (step < 3) {
             setStep((prev) => prev + 1);
             lastScrollTime.current = now;
+        } else if (step === 3) {
+            onComplete();
         }
-    }, [step]);
+    }, [step, onComplete]);
 
     const regressStep = useCallback(() => {
         const now = Date.now();
