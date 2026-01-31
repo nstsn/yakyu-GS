@@ -112,7 +112,7 @@ export default function HeroStory({ onComplete }: HeroStoryProps) {
                         満塁ホームランで一気に4点。<br />
                         そこで安心して、<span className="text-white font-medium">攻撃の手が止まってしまうんじゃないか？</span>
                     </h2>
-                    <p className="mt-8 text-slate-500 font-mono text-sm">ずっと、そう思っていました。</p>
+                    <p className="mt-8 text-slate-500 font-mono text-sm">私はそう仮説立てました。</p>
                     <div className="mt-12 flex flex-col items-center gap-2 opacity-40">
                         <p className="text-[10px] uppercase tracking-widest font-bold">Scroll or Swipe up to start</p>
                         <div className="w-px h-8 bg-gradient-to-b from-emerald-500 to-transparent animate-bounce"></div>
