@@ -77,7 +77,7 @@ export default async function Home() {
           <div className="max-w-6xl mx-auto space-y-12 p-6 md:p-12 pt-16 md:pt-24">
 
             {/* Header */}
-            <header className="space-y-4 text-center">
+            <header className="space-y-4 text-center animate-reveal">
               <div className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-500/20">
                 Analysis Report
               </div>
@@ -92,7 +92,7 @@ export default async function Home() {
             {/* Key Metrics Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* GS Card */}
-              <div className="group relative bg-[#1a0b02]/80 backdrop-blur-xl border border-orange-500/30 rounded-3xl p-8 hover:bg-[#2a0f05]/90 transition-all duration-300 shadow-2xl overflow-hidden animate-fire">
+              <div className="group relative bg-[#1a0b02]/80 backdrop-blur-xl border border-orange-500/30 rounded-3xl p-8 hover:bg-[#2a0f05]/90 transition-all duration-300 shadow-2xl overflow-hidden animate-fire animate-reveal stagger-1">
                 {/* Dynamic Fire Background */}
                 <div className="absolute inset-0 bg-gradient-to-t from-orange-600/10 via-red-600/5 to-transparent pointer-events-none"></div>
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-orange-500/20 rounded-full blur-[60px] animate-pulse"></div>
@@ -126,7 +126,7 @@ export default async function Home() {
                       </div>
                     </div>
                     <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden border border-white/5">
-                      <div className="h-full bg-gradient-to-r from-orange-600 via-orange-400 to-yellow-300 shadow-[0_0_10px_rgba(255,165,0,0.8)]" style={{ width: '100%' }}></div>
+                      <div className="h-full bg-gradient-to-r from-orange-600 via-orange-400 to-yellow-300 shadow-[0_0_10px_rgba(255,165,0,0.8)] animate-grow-x" style={{ width: '100%' }}></div>
                     </div>
                     <div className="flex justify-between text-[10px] items-center text-orange-400/70 font-bold uppercase tracking-widest pt-1">
                       <span>Innings Covered</span>
@@ -137,7 +137,7 @@ export default async function Home() {
               </div>
 
               {/* Non-GS Card */}
-              <div className="group relative bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-slate-800/80 transition-all duration-300 shadow-2xl overflow-hidden">
+              <div className="group relative bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-slate-800/80 transition-all duration-300 shadow-2xl overflow-hidden animate-reveal stagger-2">
                 <div className="absolute top-0 right-0 p-32 bg-slate-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-slate-500/10 transition-all"></div>
 
                 <div className="relative z-10">
@@ -160,7 +160,7 @@ export default async function Home() {
                       <span className="font-mono text-slate-300 font-bold text-lg">{nonGsStats?.post_run_rate_mean.toFixed(3)}</span>
                     </div>
                     <div className="w-full h-1 bg-slate-700/50 rounded-full overflow-hidden">
-                      <div className="h-full bg-slate-500" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
+                      <div className="h-full bg-slate-500 animate-grow-x stagger-3" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
                     </div>
                     <div className="flex justify-between text-sm pt-1">
                       <span className="text-slate-400">平均 残りイニング数</span>
@@ -172,7 +172,7 @@ export default async function Home() {
             </div>
 
             {/* Comparison Chart Section */}
-            <section className="bg-slate-800/30 border border-white/5 rounded-3xl p-8 md:p-10">
+            <section className="bg-slate-800/30 border border-white/5 rounded-3xl p-8 md:p-10 animate-reveal">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold flex items-center gap-3">
                   <span className="w-2 h-8 bg-emerald-500 rounded-full"></span>
@@ -197,7 +197,7 @@ export default async function Home() {
                   const scale = maxVal > 0 ? maxVal : 1;
 
                   return (
-                    <div key={stageName} className="bg-slate-900/50 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                    <div key={stageName} className="bg-slate-900/50 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors animate-reveal stagger-2">
                       <h4 className="text-slate-400 text-sm font-semibold uppercase tracking-wider mb-4 flex items-center justify-between">
                         {stageName.replace('Early', '序盤').replace('Mid', '中盤').replace('Late', '終盤')}
                         <span className="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-500">{stageName.replace(' (', '').replace(')', '')}</span>
@@ -212,7 +212,7 @@ export default async function Home() {
                           </div>
                           <div className="h-3 w-full bg-slate-700/50 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
+                              className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full animate-grow-x"
                               style={{ width: `${gsRate9 / scale * 100}%` }}
                             ></div>
                           </div>
@@ -226,7 +226,7 @@ export default async function Home() {
                           </div>
                           <div className="h-3 w-full bg-slate-700/50 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-slate-500 rounded-full"
+                              className="h-full bg-slate-500 rounded-full animate-grow-x stagger-1"
                               style={{ width: `${nonGsRate9 / scale * 100}%` }}
                             ></div>
                           </div>
@@ -239,7 +239,7 @@ export default async function Home() {
             </section>
 
             {/* Timeline / Recent Events */}
-            <section>
+            <section className="animate-reveal stagger-3">
               <h3 className="text-2xl font-bold mb-6 mt-12 flex items-center gap-3">
                 <svg className="w-6 h-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
