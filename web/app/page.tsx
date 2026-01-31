@@ -448,7 +448,11 @@ export default async function Home() {
                     </li>
                   </ul>
                   <p>
-                    なんと、満塁ホームランの後の方が、打線の勢いは上回っています。
+                    なんと、満塁ホームランの後の方が、打線の勢いは上回っています。<br />
+                    ただし、詳しく見ると面白い事実が。実は**「追加点が入る確率（発生率）」**だけで見ると、通常のビッグイニング後（56.5%）よりわずかに低い <strong className="text-white">53.3%</strong> でした。
+                  </p>
+                  <p>
+                    つまり、「一旦落ち着いてしまう（燃え尽き）」時間は確かに存在するものの、<strong className="text-emerald-400 text-lg italic">「一度火がつくと止まらなくなる爆発力（再着火）」</strong>がその後の平均得点を大きく押し上げている、という実態が浮かび上がってきました。
                   </p>
 
                   <h4 className="text-white font-bold text-xl mt-12 mb-4">分析結果 2. イニング別の面白い傾向</h4>
@@ -534,6 +538,27 @@ export default async function Home() {
                         </p>
                         <p className="mt-2 text-xs text-slate-500 italic">
                           ※ホームランだけではサンプルが少ない場合、下位打線のマルチ安打と、その後のイニングでの得点率の相関を調べることで、この「ベンチの盛り上がり」を数値化できるかもしれません。
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-slate-900/60 rounded-2xl p-6 border border-white/5 mt-6">
+                      <h5 className="text-emerald-400 font-bold mb-3 flex items-center gap-2 font-sans">
+                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-400">Future Research</span>
+                        「再着火」のきっかけ：何が勢いを呼び覚ますのか？
+                      </h5>
+                      <div className="text-sm leading-relaxed text-slate-300 font-sans">
+                        <p>
+                          今回の分析で明らかになった、満塁弾後の「確率は低いが爆発力は高い」という特徴。
+                          では、一旦落ち着いた打線に再び火をつける**「再着火のきっかけ」**は何なのでしょうか？
+                        </p>
+                        <ul className="list-disc list-inside mt-4 space-y-1 text-slate-400 text-xs">
+                          <li>代打の切り札による「出塁」</li>
+                          <li>相手のエラーや四球といった守備の「綻び」</li>
+                          <li>回を跨いだ際の「相手投手の交代」</li>
+                        </ul>
+                        <p className="mt-4">
+                          このトリガーを特定できれば、満塁弾が生む熱量を冷まさずに「確実な大量得点」へと繋げる、プロ野球の新たな戦略が見えてくるかもしれません。
                         </p>
                       </div>
                     </div>
