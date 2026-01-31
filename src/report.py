@@ -48,7 +48,7 @@ def generate_markdown_report(overall_summary, stage_summary, output_path):
 ## 検証データ
 - **対象**: NPB（プロ野球）の公式記録（2018年〜2025年）
 - **満塁ホームラン**: 期間中に発生した **{gs_count}** 本
-- **比較対象**: 満塁弾以外で「1イニング4点以上」が入ったビッグイニング **{non_gs_count}** 回
+- **比較対象**: HR以外の得点追加で「1イニング4点以上」が入ったビッグイニング **{non_gs_count}** 回
 
 両方のケースについて、「そのイニングが終わった後、試合終了までに**平均で何点取ったか**」を比較しました。
 
@@ -58,7 +58,7 @@ def generate_markdown_report(overall_summary, stage_summary, output_path):
 「その後、もし9回まで試合が続いたとしたら何点入るペースか」で比較すると、圧倒的な差が出ました。
 
 - **満塁ホームラン後**: 1試合換算で **{gs_rate9:.2f} 点** ペース
-- **その他のビッグイニング後**: 1試合換算で **{non_gs_rate9:.2f} 点** ペース
+- **HR以外の得点追加後**: 1試合換算で **{non_gs_rate9:.2f} 点** ペース
 
 なんと、満塁ホームランの後の方が、打線の勢いは上回っています。
 
@@ -68,7 +68,7 @@ def generate_markdown_report(overall_summary, stage_summary, output_path):
 | 条件 | 平均追加点 | 得点ペース(点/回) |
 |:---|---:|---:|
 | 満塁ホームラン後 | **{gs_runs:.2f}** 点 | {gs_rate:.3f} |
-| その他ビッグイニング後 | {non_gs_runs:.2f} 点 | {non_gs_rate:.3f} |
+| HR以外の得点追加後 | {non_gs_runs:.2f} 点 | {non_gs_rate:.3f} |
 
 「打って終わり」ではなく、そこからさらに約2点を追加できています。
 
