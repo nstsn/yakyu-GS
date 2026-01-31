@@ -37,7 +37,7 @@ jobs:
           if [ -f "${{ github.workspace }}/web/package-lock.json" ]; then
             echo "manager=npm" >> $GITHUB_OUTPUT
             echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --prefix web" >> $GITHUB_OUTPUT
+            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
             exit 0
           else
             echo "Unable to determine package manager"
