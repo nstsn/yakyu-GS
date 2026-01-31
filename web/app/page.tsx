@@ -160,7 +160,7 @@ export default async function Home() {
                       <span className="font-mono text-slate-300 font-bold text-lg">{nonGsStats?.post_run_rate_mean.toFixed(3)}</span>
                     </div>
                     <div className="w-full h-1 bg-slate-700/50 rounded-full overflow-hidden">
-                      <div className="h-full bg-slate-500 animate-grow-x stagger-3" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
+                      <div className="h-full bg-slate-500 animate-grow-x" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
                     </div>
                     <div className="flex justify-between text-sm pt-1">
                       <span className="text-slate-400">平均 残りイニング数</span>
@@ -241,7 +241,7 @@ export default async function Home() {
                           </div>
                           <div className="h-3 w-full bg-slate-700/50 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-slate-500 rounded-full animate-grow-x stagger-1"
+                              className="h-full bg-slate-500 rounded-full animate-grow-x"
                               style={{ width: `${nonGsRate9 / scale * 100}%` }}
                             ></div>
                           </div>
@@ -432,7 +432,7 @@ export default async function Home() {
                           <span className="font-mono text-xl text-slate-300 font-bold">{(nonGsStats?.post_run_rate_mean! * 9).toFixed(2)} <span className="text-sm text-slate-500 font-normal">点ペース</span></span>
                         </div>
                         <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden border border-white/5">
-                          <div className="bg-slate-500 h-full animate-grow-x stagger-1" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
+                          <div className="bg-slate-500 h-full animate-grow-x" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
                         </div>
                       </div>
                     </li>
