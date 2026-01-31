@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+out/
+!out/.gitkeep
+web/.next/
+web/node_modules/
+web/out/
+.env*
+.venv/
+node_modules/
+
+# Pair Programming / AI Assistant files
+GEMINI.md
+IMPLEMENTATION_PLAN*.md
+.agent/
+
+# Data Files (Raw data is not to be distributed)
+*.db
+*.sqlite3
+data.json
+web/public/data.json
