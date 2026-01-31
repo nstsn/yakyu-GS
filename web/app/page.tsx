@@ -87,7 +87,7 @@ export default async function Home() {
                 検証：勢いは止まるのか？
               </h1>
               <div className="text-slate-400 max-w-4xl mx-auto text-lg leading-relaxed">
-                2018年〜2025年の <span className="text-cyan-400 font-bold">満塁ホームラン</span> と <span className="text-slate-300 font-bold">HR以外の得点追加 (4点)</span> の「その後」を徹底比較。
+                2018年〜2025年の <span className="text-cyan-400 font-bold">満塁ホームラン</span> と <span className="text-slate-300 font-bold">HR以外の得点追加 (4点以上)</span> の「その後」を徹底比較。
               </div>
             </header>
 
@@ -151,7 +151,7 @@ export default async function Home() {
                     <span className="flex h-3 w-3 relative">
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-slate-600"></span>
                     </span>
-                    <h2 className="text-xl text-slate-300 font-semibold">比較：HR以外の得点追加 (4点イニング) 後</h2>
+                    <h2 className="text-xl text-slate-300 font-semibold">比較：HR以外の得点追加 (4点以上) 後</h2>
                   </div>
 
                   <div className="flex items-baseline gap-2 mb-1">
@@ -246,7 +246,7 @@ export default async function Home() {
                         {/* Non-GS Bar */}
                         <div>
                           <div className="flex justify-between text-xs mb-1">
-                            <span className="text-slate-300 font-semibold">HR以外の得点追加 (4点)</span>
+                            <span className="text-slate-300 font-semibold">HR以外の得点追加 (4点以上)</span>
                             <span className="text-slate-300 font-mono text-base">{nonGsRate9.toFixed(2)}</span>
                           </div>
                           <div className="h-3 w-full bg-slate-700/50 rounded-full overflow-hidden">
