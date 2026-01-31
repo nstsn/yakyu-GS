@@ -545,24 +545,37 @@ export default async function Home() {
                       </div>
                     </div>
 
-                    <div className="bg-slate-900/60 rounded-2xl p-6 border border-white/5 mt-6">
-                      <h5 className="text-emerald-400 font-bold mb-3 flex items-center gap-2 font-sans">
-                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-400">Future Research</span>
-                        「再着火」のきっかけ：何が勢いを呼び覚ますのか？
+                    <div className="bg-gradient-to-br from-emerald-950/40 to-slate-900/40 rounded-2xl p-6 border border-emerald-500/20 mt-6 shadow-[0_0_20px_rgba(16,185,129,0.05)]">
+                      <h5 className="text-emerald-400 font-bold mb-4 flex items-center gap-2 font-sans">
+                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-400 font-black">Deep Dive</span>
+                        「再着火」のトリガー：再始動の瞬間を捉える
                       </h5>
                       <div className="text-sm leading-relaxed text-slate-300 font-sans">
-                        <p>
-                          今回の分析で明らかになった、満塁弾後の「確率は低いが爆発力は高い」という特徴。
-                          では、一旦落ち着いた打線に再び火をつける**「再着火のきっかけ」**は何なのでしょうか？
+                        <p className="mb-4 text-xs italic text-slate-400">
+                          3点以上の追加点を奪った「爆発」ケース（65回）を詳細分析。
                         </p>
-                        <ul className="list-disc list-inside mt-4 space-y-1 text-slate-400 text-xs">
-                          <li>代打の切り札による「出塁」</li>
-                          <li>相手のエラーや四球といった守備の「綻び」</li>
-                          <li>回を跨いだ際の「相手投手の交代」</li>
-                        </ul>
-                        <p className="mt-4">
-                          このトリガーを特定できれば、満塁弾が生む熱量を冷まさずに「確実な大量得点」へと繋げる、プロ野球の新たな戦略が見えてくるかもしれません。
-                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                          <div className="bg-black/20 p-4 rounded-xl border border-white/5 h-full">
+                            <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-2">最初の打点（きっかけ）</p>
+                            <ul className="space-y-2">
+                              <li className="flex justify-between items-center"><span className="text-slate-300">タイムリー単打</span><span className="font-mono text-white font-bold text-xs">60.0%</span></li>
+                              <li className="flex justify-between items-center"><span className="text-slate-300">本塁打</span><span className="font-mono text-white font-bold text-xs">32.3%</span></li>
+                            </ul>
+                            <p className="text-[10px] text-slate-500 mt-4 leading-tight">
+                              泥臭く「繋いで線にする」か、あるいは「もう一発」で強引にこじ開けるか、そのどちらかが大半を占めます。
+                            </p>
+                          </div>
+                          <div className="bg-black/20 p-4 rounded-xl border border-white/5 h-full">
+                            <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-2">その走者の出塁方法</p>
+                            <ul className="space-y-2">
+                              <li className="flex justify-between items-center"><span className="text-slate-300">シングルヒット</span><span className="font-mono text-white font-bold text-xs">40.0%</span></li>
+                              <li className="flex justify-between items-center"><span className="text-slate-200 font-medium">四球 (粘りの出塁)</span><span className="font-mono text-white font-bold text-xs">24.6%</span></li>
+                            </ul>
+                            <p className="text-[10px] text-slate-500 mt-4 leading-tight">
+                              注目は4回に1回発生する「四球」。ヒットに劣らぬ、「崩れを見逃さない慎重さ」が爆発の呼び水となります。
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
