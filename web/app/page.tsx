@@ -84,11 +84,8 @@ export default async function Home() {
               <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 pb-2">
                 検証：勢いは止まるのか？
               </h1>
-              <div className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                2018年〜2025年の
-                <span className="text-cyan-400 font-bold ml-1">満塁ホームラン</span> と
-                <span className="text-slate-300 font-bold"> それ以外のビッグイニング（4点）</span>
-                の「その後」を徹底比較。
+              <div className="text-slate-400 max-w-4xl mx-auto text-lg leading-relaxed">
+                2018年〜2025年の <span className="text-cyan-400 font-bold">満塁ホームラン</span> と <span className="text-slate-300 font-bold">HR以外の得点追加 (4点)</span> の「その後」を徹底比較。
               </div>
             </header>
 
