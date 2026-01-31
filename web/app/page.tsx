@@ -477,6 +477,29 @@ export default async function Home() {
                         </div>
                       </div>
                     </div>
+
+                    <div className="bg-slate-900/60 rounded-2xl p-6 border border-white/5 mt-6">
+                      <h5 className="text-emerald-400 font-bold mb-3 flex items-center gap-2 font-sans">
+                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-400">Hypothesis</span>
+                        打線の「意外性」がもたらす波及効果
+                      </h5>
+                      <div className="text-sm leading-relaxed text-slate-300 font-sans">
+                        <p>
+                          もう一つの興味深い仮説は、<strong className="text-white">「誰が打ったか」がチームの士気に与える影響</strong>です。
+                        </p>
+                        <ul className="list-disc list-inside mt-4 space-y-2 text-slate-400">
+                          <li>本塁打率や打率が極端に低い選手のホームラン</li>
+                          <li>投手のタイムリー、あるいはホームラン</li>
+                          <li>不振にあえいでいた選手の「マルチ安打」</li>
+                        </ul>
+                        <p className="mt-4">
+                          観客席が一番盛り上がるのは「ホームラン」という野球の華ですが、共に戦う選手やベンチ、首脳陣にとって、こうした「意外な一打」は数値以上の勇気を与え、打線全体の奮起（相関）を呼ぶ可能性があります。
+                        </p>
+                        <p className="mt-2 text-xs text-slate-500 italic">
+                          ※ホームランだけではサンプルが少ない場合、下位打線のマルチ安打と、その後のイニングでの得点率の相関を調べることで、この「ベンチの盛り上がり」を数値化できるかもしれません。
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </article>
               </div>
