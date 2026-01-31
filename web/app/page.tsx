@@ -412,9 +412,11 @@ export default async function Home() {
                   <div className="my-10 bg-gradient-to-r from-emerald-900/30 to-slate-900/30 p-6 rounded-xl border-l-4 border-emerald-500">
                     <h4 className="text-xl font-bold text-emerald-400 mt-0 mb-2">結論から言うと</h4>
                     <p className="mb-0 text-white font-bold text-2xl">
-                      「勢いは止まらない。むしろ加速する」
+                      「確率は下がる。だが、爆発力は上がる」
                     </p>
-                    <p className="mt-2 mb-0">が正解でした。</p>
+                    <p className="mt-2 mb-0">
+                      わずかな『燃え尽き』を補って余りある、<strong className="text-white">『再着火』の爆発力</strong>が正解でした。
+                    </p>
                   </div>
 
                   <h4 className="text-white font-bold text-xl mt-8 mb-4">分析結果 1. 得点ペースの比較（1試合換算）</h4>
