@@ -95,35 +95,45 @@ export default async function Home() {
             {/* Key Metrics Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* GS Card */}
-              <div className="group relative bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-slate-800/80 transition-all duration-300 shadow-2xl overflow-hidden">
-                <div className="absolute top-0 right-0 p-32 bg-cyan-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-cyan-500/20 transition-all"></div>
+              <div className="group relative bg-[#1a0b02]/80 backdrop-blur-xl border border-orange-500/30 rounded-3xl p-8 hover:bg-[#2a0f05]/90 transition-all duration-300 shadow-2xl overflow-hidden animate-fire">
+                {/* Dynamic Fire Background */}
+                <div className="absolute inset-0 bg-gradient-to-t from-orange-600/10 via-red-600/5 to-transparent pointer-events-none"></div>
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-orange-500/20 rounded-full blur-[60px] animate-pulse"></div>
+                <div className="absolute -top-4 -right-4 w-32 h-32 bg-red-500/20 rounded-full blur-[60px] animate-pulse delay-700"></div>
 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="flex h-3 w-3 relative">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+                    <span className="flex h-4 w-4 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-4 w-4 bg-orange-600 shadow-[0_0_15px_rgba(255,69,0,1)]"></span>
                     </span>
-                    <h2 className="text-xl text-cyan-400 font-semibold">満塁ホームラン後</h2>
+                    <h2 className="text-xl font-bold tracking-wider fiery-text drop-shadow-sm flex items-center gap-2">
+                      🔥 満塁ホームラン後
+                    </h2>
                   </div>
 
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-5xl font-bold text-white tracking-tight">{gsStats?.post_inning_runs_1to9_mean.toFixed(2)}</span>
-                    <span className="text-sm text-slate-400">点 (平均追加点)</span>
+                    <span className="text-6xl font-black text-white tracking-tighter drop-shadow-[0_0_10px_rgba(255,165,0,0.5)]">
+                      {gsStats?.post_inning_runs_1to9_mean.toFixed(2)}
+                    </span>
+                    <span className="text-sm font-bold text-orange-200 uppercase tracking-widest">点 (平均追加点)</span>
                   </div>
-                  <p className="text-sm text-slate-500 mb-6 font-mono">N = {gsCount}</p>
+                  <p className="text-xs text-orange-500/60 mb-6 font-mono font-bold tracking-widest">SAMPLES: {gsCount}</p>
 
-                  <div className="space-y-3 bg-slate-900/50 p-4 rounded-xl border border-white/5">
+                  <div className="space-y-3 bg-black/40 p-5 rounded-2xl border border-orange-500/20 backdrop-blur-md">
                     <div className="flex justify-between text-sm items-center">
-                      <span className="text-slate-400">得点ペース (点/回)</span>
-                      <span className="font-mono text-cyan-200 font-bold text-lg">{gsStats?.post_run_rate_mean.toFixed(3)}</span>
+                      <span className="text-orange-200 font-medium tracking-wide">得点ペース (点/回)</span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-white font-black text-xl">{gsStats?.post_run_rate_mean.toFixed(3)}</span>
+                        <span className="text-orange-500 animate-bounce">▲</span>
+                      </div>
                     </div>
-                    <div className="w-full h-1 bg-slate-700/50 rounded-full overflow-hidden">
-                      <div className="h-full bg-cyan-500" style={{ width: '100%' }}></div>
+                    <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden border border-white/5">
+                      <div className="h-full bg-gradient-to-r from-orange-600 via-orange-400 to-yellow-300 shadow-[0_0_10px_rgba(255,165,0,0.8)]" style={{ width: '100%' }}></div>
                     </div>
-                    <div className="flex justify-between text-sm pt-1">
-                      <span className="text-slate-400">平均 残りイニング数</span>
-                      <span className="font-mono text-slate-300">{gsStats?.remaining_off_innings_1to9_mean.toFixed(2)}</span>
+                    <div className="flex justify-between text-[10px] items-center text-orange-400/70 font-bold uppercase tracking-widest pt-1">
+                      <span>Innings Covered</span>
+                      <span className="font-mono">{gsStats?.remaining_off_innings_1to9_mean.toFixed(2)} innings avg</span>
                     </div>
                   </div>
                 </div>
