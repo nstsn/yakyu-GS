@@ -71,23 +71,23 @@ export default async function Home() {
   const stages = ['Early (1-3)', 'Mid (4-6)', 'Late (7-9)'];
 
   return (
-    <main className="min-h-screen bg-slate-900 text-white font-sans selection:bg-cyan-500/30">
+    <main className="min-h-screen bg-gradient-to-b from-slate-100 to-white text-slate-900 font-sans selection:bg-cyan-500/30">
 
       <DashboardWrapper>
         {/* Main Dashboard Content */}
-        <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 relative z-10">
+        <div className="relative z-10">
           <div className="max-w-6xl mx-auto space-y-12 p-6 md:p-12 pt-16 md:pt-24">
 
             {/* Header */}
             <header className="space-y-4 text-center animate-reveal">
-              <div className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-500/20">
+              <div className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-600 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-500/30">
                 Analysis Report
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 pb-2">
+              <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-cyan-600 pb-2">
                 検証：勢いは止まるのか？
               </h1>
-              <div className="text-slate-400 max-w-4xl mx-auto text-lg leading-relaxed">
-                2018年〜2025年の <span className="text-cyan-400 font-bold">満塁ホームラン</span> と <span className="text-slate-300 font-bold">HR以外の得点追加 (4点以上)</span> の「その後」を徹底比較。
+              <div className="text-slate-600 max-w-4xl mx-auto text-lg leading-relaxed">
+                2018年〜2025年の <span className="text-cyan-600 font-bold">満塁ホームラン</span> と <span className="text-slate-700 font-bold">HR以外の得点追加 (4点以上)</span> の「その後」を徹底比較。
               </div>
             </header>
 
@@ -182,13 +182,13 @@ export default async function Home() {
             </div>
 
             {/* Comparison Chart Section */}
-            <section className="bg-slate-800/30 border border-white/5 rounded-3xl p-8 md:p-10 animate-reveal">
+            <section className="bg-white border border-slate-200 rounded-3xl p-8 md:p-10 animate-reveal shadow-lg">
               <div className="mb-8">
-                <h3 className="text-2xl font-bold flex items-center gap-3">
+                <h3 className="text-2xl font-bold flex items-center gap-3 text-slate-800">
                   <span className="w-2 h-8 bg-emerald-500 rounded-full"></span>
                   イニング帯別分析 (得点ペース：1試合換算)
                 </h3>
-                <p className="text-slate-400 text-sm mt-2 ml-5">
+                <p className="text-slate-500 text-sm mt-2 ml-5">
                   ※各イニング帯でビッグイニングが発生した後、その勢いで「1試合(9イニング)フルで戦ったら何点入るか」の比較
                 </p>
               </div>
@@ -265,8 +265,8 @@ export default async function Home() {
 
             {/* Timeline / Recent Events */}
             <section className="animate-reveal stagger-3">
-              <h3 className="text-2xl font-bold mb-6 mt-12 flex items-center gap-3">
-                <svg className="w-6 h-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <h3 className="text-2xl font-bold mb-6 mt-12 flex items-center gap-3 text-slate-800">
+                <svg className="w-6 h-6 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 直近の満塁ホームラン一覧
@@ -383,22 +383,22 @@ export default async function Home() {
             </section>
 
             {/* Analysis Report Section */}
-            <section className="bg-slate-800/50 border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-40 bg-emerald-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <section className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-lg">
+              <div className="absolute top-0 right-0 p-40 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
               <div className="relative z-10 max-w-4xl mx-auto">
-                <div className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-500/20 mb-6">
+                <div className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-600 rounded-full text-xs font-bold tracking-wider uppercase border border-emerald-500/30 mb-6">
                   Verification Report
                 </div>
-                <h3 className="text-3xl font-bold mb-8 leading-tight">
+                <h3 className="text-3xl font-bold mb-8 leading-tight text-slate-800">
                   【検証】満塁ホームランで大量得点した後、<br />
                   打線の勢いは止まってしまうのか？
                 </h3>
 
-                <article className="prose prose-invert prose-lg max-w-none text-slate-300">
+                <article className="prose prose-lg max-w-none text-slate-600">
                   <p>
                     「一気に4点取ってお祭り騒ぎ。でも、その直後に打線が冷えて追加点が入らなくなる...」<br />
-                    野球ファンなら一度は感じたことがある、この<strong className="text-white">「満塁ホームラン後の燃え尽き」説</strong>。
+                    野球ファンなら一度は感じたことがある、この<strong className="text-slate-800">「満塁ホームラン後の燃え尽き」説</strong>。
                   </p>
                   <p>
                     これって本当なんでしょうか？<br />
@@ -409,17 +409,17 @@ export default async function Home() {
                     </span>
                   </p>
 
-                  <div className="my-10 bg-gradient-to-r from-emerald-900/30 to-slate-900/30 p-6 rounded-xl border-l-4 border-emerald-500">
-                    <h4 className="text-xl font-bold text-emerald-400 mt-0 mb-2">統計が示す結論</h4>
-                    <p className="mb-2 text-white font-bold text-2xl">
+                  <div className="my-10 bg-gradient-to-r from-emerald-100 to-slate-100 p-6 rounded-xl border-l-4 border-emerald-500">
+                    <h4 className="text-xl font-bold text-emerald-600 mt-0 mb-2">統計が示す結論</h4>
+                    <p className="mb-2 text-slate-800 font-bold text-2xl">
                       「確率は下がる。だが、爆発力は上がる」
                     </p>
-                    <p className="mt-0 leading-relaxed">
-                      満塁ホームランを打つと、その後の追加得点率は確かに低下します。しかし、一度再び火がつくと止まらなくなる<strong className="text-white">『再着火』の爆発力</strong>があり、それが結果として平均得点を押し上げています。
+                    <p className="mt-0 leading-relaxed text-slate-600">
+                      満塁ホームランを打つと、その後の追加得点率は確かに低下します。しかし、一度再び火がつくと止まらなくなる<strong className="text-slate-800">『再着火』の爆発力</strong>があり、それが結果として平均得点を押し上げています。
                     </p>
                   </div>
 
-                  <h4 className="text-white font-bold text-xl mt-8 mb-4">分析結果 1. 得点ペースの比較（1試合換算）</h4>
+                  <h4 className="text-slate-800 font-bold text-xl mt-8 mb-4">分析結果 1. 得点ペースの比較（1試合換算）</h4>
                   <p>
                     「その後、もし9回まで試合が続いたとしたら何点入るペースか」で比較すると、圧倒的な差が出ました。
                   </p>
@@ -451,87 +451,87 @@ export default async function Home() {
                   </ul>
                   <p>
                     なんと、満塁ホームランの後の方が、打線の勢いは上回っています。<br />
-                    ただし、詳しく見ると面白い事実が。実は**「追加点が入る確率（発生率）」**だけで見ると、通常のビッグイニング後（56.5%）よりわずかに低い <strong className="text-white">53.3%</strong> でした。
+                    ただし、詳しく見ると面白い事実が。実は**「追加点が入る確率（発生率）」**だけで見ると、通常のビッグイニング後（56.5%）よりわずかに低い <strong className="text-slate-800">53.3%</strong> でした。
                   </p>
                   <p>
-                    つまり、「一旦落ち着いてしまう（燃え尽き）」時間は確かに存在するものの、<strong className="text-emerald-400 text-lg italic">「一度火がつくと止まらなくなる爆発力（再着火）」</strong>がその後の平均得点を大きく押し上げている、という実態が浮かび上がってきました。
+                    つまり、「一旦落ち着いてしまう（燃え尽き）」時間は確かに存在するものの、<strong className="text-emerald-600 text-lg italic">「一度火がつくと止まらなくなる爆発力（再着火）」</strong>がその後の平均得点を大きく押し上げている、という実態が浮かび上がってきました。
                   </p>
 
-                  <h4 className="text-white font-bold text-xl mt-12 mb-4">分析結果 2. イニング別の面白い傾向</h4>
+                  <h4 className="text-slate-800 font-bold text-xl mt-12 mb-4">分析結果 2. イニング別の面白い傾向</h4>
                   <p>さらに詳しく見ると、「いつ打ったか」で大きく運命が分かれています。</p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6 not-prose">
-                    <div className="bg-slate-900/40 p-5 rounded-xl border border-white/5">
-                      <h5 className="text-lg font-bold text-emerald-300 mb-2">☀️ 序盤・中盤（1〜6回）</h5>
-                      <p className="text-slate-300 text-sm leading-relaxed">
+                    <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 shadow-sm">
+                      <h5 className="text-lg font-bold text-emerald-600 mb-2">☀️ 序盤・中盤（1〜6回）</h5>
+                      <p className="text-slate-600 text-sm leading-relaxed">
                         めちゃくちゃ打ちます。特に中盤に満塁弾が出た場合の勢いは凄まじく、得点ペースは比較対象を大きく上回りました。「イケイケ」の雰囲気は本物のようです。
                       </p>
                     </div>
-                    <div className="bg-slate-900/40 p-5 rounded-xl border border-white/5">
-                      <h5 className="text-lg font-bold text-indigo-300 mb-2">🌙 終盤（7〜9回）</h5>
-                      <p className="text-slate-300 text-sm leading-relaxed">
+                    <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 shadow-sm">
+                      <h5 className="text-lg font-bold text-indigo-600 mb-2">🌙 終盤（7〜9回）</h5>
+                      <p className="text-slate-600 text-sm leading-relaxed">
                         ここだけは急ブレーキがかかります。ペースに換算すると「1試合やっても2点も取れない」レベルまで落ち込みます。おそらく点差が開きすぎて「店じまい」ムードになるからだと推測されます。
                       </p>
                     </div>
                   </div>
 
-                  <h4 className="text-white font-bold text-xl mt-12 mb-4">まとめ</h4>
+                  <h4 className="text-slate-800 font-bold text-xl mt-12 mb-4">まとめ</h4>
                   <p>
-                    「満塁弾で満足して打線が沈黙する」というのは、データ的に見ても<strong className="text-white">どうやら確か</strong>なようです。<br />
+                    「満塁弾で満足して打線が沈黙する」というのは、データ的に見ても<strong className="text-slate-800">どうやら確か</strong>なようです。<br />
                     しかし、何かをきっかけに再びチャンスが訪れ、一度点が入れば、<br />
-                    そこから再び<strong className="text-emerald-400">「手がつけられないほどの爆発」</strong>が巻き起こるかもしれません。
+                    そこから再び<strong className="text-emerald-600">「手がつけられないほどの爆発」</strong>が巻き起こるかもしれません。
                   </p>
-                  <p className="text-center font-bold text-3xl text-white my-8">
+                  <p className="text-center font-bold text-3xl text-slate-800 my-8">
                     「再着火のサインを見逃すな！」
                   </p>
 
                   {/* Future Work / Deep Dive */}
-                  <div className="mt-20 pt-10 border-t border-white/10">
-                    <h4 className="text-xl font-bold text-slate-400 mb-6 flex items-center gap-2">
+                  <div className="mt-20 pt-10 border-t border-slate-200">
+                    <h4 className="text-xl font-bold text-slate-600 mb-6 flex items-center gap-2">
                       🔍 今後の深掘り課題：得点の「理由」を考える
                     </h4>
-                    <p className="text-sm text-slate-400 mb-6 font-sans">
+                    <p className="text-sm text-slate-500 mb-6 font-sans">
                       今回の分析では「満塁ホームラン後の得点率」を機械的に集計しましたが、個別の試合を見ると、数字だけでは語れないドラマがありました。
                     </p>
 
-                    <div className="bg-slate-900/60 rounded-2xl p-6 border border-white/5">
-                      <h5 className="text-emerald-400 font-bold mb-3 flex items-center gap-2 font-sans">
-                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-400">Case Study</span>
+                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm">
+                      <h5 className="text-emerald-600 font-bold mb-3 flex items-center gap-2 font-sans">
+                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-600">Case Study</span>
                         2025年9月13日 読売ジャイアンツの例
                       </h5>
                       <div className="flex flex-col md:flex-row gap-6 items-start">
-                        <div className="flex-1 text-sm leading-relaxed text-slate-300 font-sans">
+                        <div className="flex-1 text-sm leading-relaxed text-slate-600 font-sans">
                           <p>
-                            1回裏に満塁ホームランが飛び出し、最高のスタートを切った試合。しかし5回表に一挙7点を奪われ、<strong className="text-white">10 - 6</strong> と逆転を許してしまいます。
+                            1回裏に満塁ホームランが飛び出し、最高のスタートを切った試合。しかし5回表に一挙7点を奪われ、<strong className="text-slate-800">10 - 6</strong> と逆転を許してしまいます。
                           </p>
-                          <p className="mt-2 text-slate-300">
-                            その後、巨人は7回に3点、9回に2点を取り返し、最終的に <strong className="text-white">11 - 10</strong> で劇的なサヨナラ勝ちを収めました。
+                          <p className="mt-2 text-slate-600">
+                            その後、巨人は7回に3点、9回に2点を取り返し、最終的に <strong className="text-slate-800">11 - 10</strong> で劇的なサヨナラ勝ちを収めました。
                           </p>
-                          <p className="mt-4 p-3 bg-white/5 rounded-lg italic text-slate-400 border-l-2 border-slate-700">
+                          <p className="mt-4 p-3 bg-slate-100 rounded-lg italic text-slate-500 border-l-2 border-slate-300">
                             「この後半の得点は、満塁弾の『勢い』なのか。それとも逆転されたことによる『反撃の意志』なのか？」
                           </p>
-                          <p className="mt-4 text-slate-300 font-sans">
+                          <p className="mt-4 text-slate-600 font-sans">
                             今回の統計ではこれらも「満塁ホームラン後の得点」としてカウントされていますが、得点の背景にある「点差の変化」や「試合展開」を考慮することで、より本質的な「打線の心理」に迫れるかもしれません。
                           </p>
                         </div>
-                        <div className="md:w-56 w-full bg-slate-800 rounded-lg p-3 font-mono text-[10px] border border-white/5 opacity-80 shadow-inner">
-                          <div className="text-center border-b border-white/10 pb-1 mb-2 text-slate-500 uppercase tracking-tighter">Running Score (09/13)</div>
-                          <div className="flex justify-between py-0.5"><span>Tigers</span><span className="text-slate-300 tracking-wider">300 070 000 | 10</span></div>
+                        <div className="md:w-56 w-full bg-slate-800 rounded-lg p-3 font-mono text-[10px] border border-slate-700 shadow-lg">
+                          <div className="text-center border-b border-white/10 pb-1 mb-2 text-slate-400 uppercase tracking-tighter">Running Score (09/13)</div>
+                          <div className="flex justify-between py-0.5 text-slate-300"><span>Tigers</span><span className="tracking-wider">300 070 000 | 10</span></div>
                           <div className="flex justify-between py-0.5 font-bold text-cyan-400"><span>Giants</span><span className="tracking-wider">402 000 302 | 11</span></div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="bg-slate-900/60 rounded-2xl p-6 border border-white/5 mt-6">
-                      <h5 className="text-emerald-400 font-bold mb-3 flex items-center gap-2 font-sans">
-                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-400">Hypothesis</span>
+                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm mt-6">
+                      <h5 className="text-emerald-600 font-bold mb-3 flex items-center gap-2 font-sans">
+                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-600">Hypothesis</span>
                         打線の「意外性」がもたらす波及効果
                       </h5>
-                      <div className="text-sm leading-relaxed text-slate-300 font-sans">
+                      <div className="text-sm leading-relaxed text-slate-600 font-sans">
                         <p>
-                          もう一つの興味深い仮説は、<strong className="text-white">「誰が打ったか」がチームの士気に与える影響</strong>です。
+                          もう一つの興味深い仮説は、<strong className="text-slate-800">「誰が打ったか」がチームの士気に与える影響</strong>です。
                         </p>
-                        <ul className="list-disc list-inside mt-4 space-y-2 text-slate-400">
+                        <ul className="list-disc list-inside mt-4 space-y-2 text-slate-500">
                           <li>本塁打率や打率が極端に低い選手のホームラン</li>
                           <li>投手のタイムリー、あるいはホームラン</li>
                           <li>不振にあえいでいた選手の「マルチ安打」</li>
@@ -539,39 +539,39 @@ export default async function Home() {
                         <p className="mt-4">
                           観客席が一番盛り上がるのは「ホームラン」という野球の華ですが、共に戦う選手やベンチ、首脳陣にとって、こうした「意外な一打」は数値以上の勇気を与え、打線全体の奮起（相関）を呼ぶ可能性があります。
                         </p>
-                        <p className="mt-2 text-xs text-slate-500 italic">
+                        <p className="mt-2 text-xs text-slate-400 italic">
                           ※ホームランだけではサンプルが少ない場合、下位打線のマルチ安打と、その後のイニングでの得点率の相関を調べることで、この「ベンチの盛り上がり」を数値化できるかもしれません。
                         </p>
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-emerald-950/40 to-slate-900/40 rounded-2xl p-6 border border-emerald-500/20 mt-6 shadow-[0_0_20px_rgba(16,185,129,0.05)]">
-                      <h5 className="text-emerald-400 font-bold mb-4 flex items-center gap-2 font-sans">
-                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-400 font-black">Deep Dive</span>
-                        「再着火」のトリガー：再始動の瞬間を捉える
+                    <div className="bg-gradient-to-br from-emerald-50 to-slate-50 rounded-2xl p-6 border border-emerald-200 mt-6 shadow-sm">
+                      <h5 className="text-emerald-600 font-bold mb-4 flex items-center gap-2 font-sans">
+                        <span className="text-xs bg-emerald-500/20 px-2 py-0.5 rounded text-emerald-600 font-black">Deep Dive</span>
+                        「再着火」のトリガー：再始動の瞬間を捕える
                       </h5>
-                      <div className="text-sm leading-relaxed text-slate-300 font-sans">
-                        <p className="mb-4 text-xs italic text-slate-400">
+                      <div className="text-sm leading-relaxed text-slate-600 font-sans">
+                        <p className="mb-4 text-xs italic text-slate-500">
                           3点以上の追加点を奪った「爆発」ケース（65回）を詳細分析。
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                          <div className="bg-black/20 p-4 rounded-xl border border-white/5 h-full">
-                            <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-2">最初の打点（きっかけ）</p>
+                          <div className="bg-white p-4 rounded-xl border border-slate-200 h-full shadow-sm">
+                            <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest mb-2">最初の打点（きっかけ）</p>
                             <ul className="space-y-2">
-                              <li className="flex justify-between items-center"><span className="text-slate-300">タイムリー単打</span><span className="font-mono text-white font-bold text-xs">60.0%</span></li>
-                              <li className="flex justify-between items-center"><span className="text-slate-300">本塁打</span><span className="font-mono text-white font-bold text-xs">32.3%</span></li>
+                              <li className="flex justify-between items-center"><span className="text-slate-600">タイムリー単打</span><span className="font-mono text-slate-800 font-bold text-xs">60.0%</span></li>
+                              <li className="flex justify-between items-center"><span className="text-slate-600">本塁打</span><span className="font-mono text-slate-800 font-bold text-xs">32.3%</span></li>
                             </ul>
-                            <p className="text-[10px] text-slate-500 mt-4 leading-tight">
+                            <p className="text-[10px] text-slate-400 mt-4 leading-tight">
                               泥臭く「繋いで線にする」か、あるいは「もう一発」で強引にこじ開けるか、そのどちらかが大半を占めます。
                             </p>
                           </div>
-                          <div className="bg-black/20 p-4 rounded-xl border border-white/5 h-full">
-                            <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-2">その走者の出塁方法</p>
+                          <div className="bg-white p-4 rounded-xl border border-slate-200 h-full shadow-sm">
+                            <p className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest mb-2">その走者の出塁方法</p>
                             <ul className="space-y-2">
-                              <li className="flex justify-between items-center"><span className="text-slate-300">シングルヒット</span><span className="font-mono text-white font-bold text-xs">40.0%</span></li>
-                              <li className="flex justify-between items-center"><span className="text-slate-200 font-medium">四球 (粘りの出塁)</span><span className="font-mono text-white font-bold text-xs">24.6%</span></li>
+                              <li className="flex justify-between items-center"><span className="text-slate-600">シングルヒット</span><span className="font-mono text-slate-800 font-bold text-xs">40.0%</span></li>
+                              <li className="flex justify-between items-center"><span className="text-slate-700 font-medium">四球 (粘りの出塁)</span><span className="font-mono text-slate-800 font-bold text-xs">24.6%</span></li>
                             </ul>
-                            <p className="text-[10px] text-slate-500 mt-4 leading-tight">
+                            <p className="text-[10px] text-slate-400 mt-4 leading-tight">
                               注目は4回に1回発生する「四球」。ヒットに劣らぬ、「崩れを見逃さない慎重さ」が爆発の呼び水となります。
                             </p>
                           </div>
@@ -586,7 +586,7 @@ export default async function Home() {
           </div>
 
           {/* Footer */}
-          <footer className="py-12 text-center text-slate-600 text-sm border-t border-white/5 mt-12 bg-slate-950/20 backdrop-blur-sm">
+          <footer className="py-12 text-center text-slate-500 text-sm border-t border-slate-200 mt-12 bg-slate-50">
             <p>© 2026 NPB Grand Slam Analysis Project.</p>
             <div className="mt-4 space-y-1 text-[10px] md:text-xs">
               <p>
