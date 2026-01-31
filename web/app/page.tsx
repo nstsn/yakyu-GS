@@ -410,12 +410,12 @@ export default async function Home() {
                   </p>
 
                   <div className="my-10 bg-gradient-to-r from-emerald-900/30 to-slate-900/30 p-6 rounded-xl border-l-4 border-emerald-500">
-                    <h4 className="text-xl font-bold text-emerald-400 mt-0 mb-2">結論から言うと</h4>
-                    <p className="mb-0 text-white font-bold text-2xl">
+                    <h4 className="text-xl font-bold text-emerald-400 mt-0 mb-2">統計が示す結論</h4>
+                    <p className="mb-2 text-white font-bold text-2xl">
                       「確率は下がる。だが、爆発力は上がる」
                     </p>
-                    <p className="mt-2 mb-0">
-                      わずかな『燃え尽き』を補って余りある、<strong className="text-white">『再着火』の爆発力</strong>が正解でした。
+                    <p className="mt-0 leading-relaxed">
+                      満塁ホームランを打つと、その後の追加得点率は確かに低下します。しかし、一度再び火がつくと止まらなくなる<strong className="text-white">『再着火』の爆発力</strong>があり、それが結果として平均得点を押し上げています。
                     </p>
                   </div>
 
@@ -477,11 +477,12 @@ export default async function Home() {
 
                   <h4 className="text-white font-bold text-xl mt-12 mb-4">まとめ</h4>
                   <p>
-                    「満塁弾で満足して打線が沈黙する」というのは、どうやら私の（そして多くのファンの）思い込みだったようです。<br />
-                    次に贔屓チームが満塁ホームランを打ったら、安心してこう思いましょう。
+                    「満塁弾で満足して打線が沈黙する」というのは、データ的に見ても<strong className="text-white">どうやら確か</strong>なようです。<br />
+                    しかし、何かをきっかけに再びチャンスが訪れ、一度点が入れば、<br />
+                    そこから再び<strong className="text-emerald-400">「手がつけられないほどの爆発」</strong>が巻き起こるかもしれません。
                   </p>
                   <p className="text-center font-bold text-3xl text-white my-8">
-                    「まだまだ点は入るぞ！」
+                    「再着火のサインを見逃すな！」
                   </p>
 
                   {/* Future Work / Deep Dive */}
