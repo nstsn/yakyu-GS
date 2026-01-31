@@ -16,16 +16,23 @@ def generate_summary(df):
         
     df['stage'] = df['inning_no'].apply(get_stage)
     
+    # Calculate if at least one run was scored after
+    df['scored_any'] = (df['post_inning_runs_1to9'] > 0).astype(int)
+    
     # 1. Overall Comparison
     overall = df.groupby('is_grandslam').agg({
         'post_run_rate': ['mean', 'median', 'count', 'std'],
         'post_inning_runs_1to9': 'mean',
-        'remaining_off_innings_1to9': 'mean'
+        'remaining_off_innings_1to9': 'mean',
+        'scored_any': 'mean' # This becomes the probability
     }).round(3)
+    
+    # Rename for clarity if needed, but keeping consistent with other flattened names
     
     # 2. Stage Breakdown
     stage = df.groupby(['stage', 'is_grandslam']).agg({
         'post_run_rate': ['mean', 'median', 'count'],
+        'scored_any': 'mean'
     }).round(3)
     
     return overall, stage

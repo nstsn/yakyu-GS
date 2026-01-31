@@ -12,6 +12,7 @@ type OverallStat = {
   post_run_rate_std: number;
   post_inning_runs_1to9_mean: number;
   remaining_off_innings_1to9_mean: number;
+  scored_any_mean: number;
 };
 
 type StageStat = {
@@ -20,6 +21,7 @@ type StageStat = {
   post_run_rate_mean: number;
   post_run_rate_median: number;
   post_run_rate_count: number;
+  scored_any_mean: number;
 };
 
 type EventData = {
@@ -128,9 +130,13 @@ export default async function Home() {
                     <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden border border-white/5">
                       <div className="h-full bg-gradient-to-r from-orange-600 via-orange-400 to-yellow-300 shadow-[0_0_10px_rgba(255,165,0,0.8)] animate-grow-x" style={{ width: '100%' }}></div>
                     </div>
-                    <div className="flex justify-between text-[10px] items-center text-orange-400/70 font-bold uppercase tracking-widest pt-1">
+                    <div className="flex justify-between text-[10px] items-center text-orange-400/70 font-bold uppercase tracking-widest pt-1 border-t border-orange-500/10">
+                      <span>Scoring Prob.</span>
+                      <span className="font-mono">{((gsStats?.scored_any_mean || 0) * 100).toFixed(1)}%</span>
+                    </div>
+                    <div className="flex justify-between text-[10px] items-center text-orange-400/70 font-bold uppercase tracking-widest pt-0.5">
                       <span>Innings Covered</span>
-                      <span className="font-mono">{gsStats?.remaining_off_innings_1to9_mean.toFixed(2)} innings avg</span>
+                      <span className="font-mono">{gsStats?.remaining_off_innings_1to9_mean.toFixed(2)} inn avg</span>
                     </div>
                   </div>
                 </div>
@@ -162,9 +168,13 @@ export default async function Home() {
                     <div className="w-full h-1 bg-slate-700/50 rounded-full overflow-hidden">
                       <div className="h-full bg-slate-500 animate-grow-x" style={{ width: `${(nonGsStats?.post_run_rate_mean || 0) / (gsStats?.post_run_rate_mean || 1) * 100}%` }}></div>
                     </div>
-                    <div className="flex justify-between text-sm pt-1">
-                      <span className="text-slate-400">平均 残りイニング数</span>
-                      <span className="font-mono text-slate-300">{nonGsStats?.remaining_off_innings_1to9_mean.toFixed(2)}</span>
+                    <div className="flex justify-between text-[10px] items-center text-slate-500 font-bold uppercase tracking-widest pt-1 border-t border-white/5">
+                      <span>Scoring Prob.</span>
+                      <span className="font-mono">{((nonGsStats?.scored_any_mean || 0) * 100).toFixed(1)}%</span>
+                    </div>
+                    <div className="flex justify-between text-[10px] items-center text-slate-500 font-bold uppercase tracking-widest pt-0.5">
+                      <span>Innings Covered</span>
+                      <span className="font-mono">{nonGsStats?.remaining_off_innings_1to9_mean.toFixed(2)} inn avg</span>
                     </div>
                   </div>
                 </div>

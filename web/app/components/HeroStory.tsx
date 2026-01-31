@@ -148,8 +148,8 @@ export default function HeroStory({ onComplete }: HeroStoryProps) {
                         </span>
                     </h2>
                     <p className="max-w-2xl mx-auto text-slate-400 text-lg mb-12 leading-relaxed">
-                        「30分前までの私」と同じように驚いたあなたへ。<br />
-                        ここにある「真実」をご覧ください。
+                        追加得点が入る確率は53.3%と、通常（56.5%）よりわずかに下がります。<br />
+                        しかし、<span className="text-white font-medium italic">「一度火がつくと止まらなくなる」</span>爆発力がそこにはありました。
                     </p>
 
                     <div className="relative inline-block group">
