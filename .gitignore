@@ -6,7 +6,7 @@ out/
 !out/.gitkeep
 web/.next/
 web/node_modules/
-web/out/
+# web/out/ - removed to allow deployment of pre-built files
 .env*
 .venv/
 node_modules/

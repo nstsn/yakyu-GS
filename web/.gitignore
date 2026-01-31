@@ -15,7 +15,7 @@
 
 # next.js
 /.next/
-/out/
+# /out/ - removed to allow deployment of pre-built files
 
 # production
 /build
