@@ -55,12 +55,18 @@ async function getData(): Promise<DashboardData> {
   return JSON.parse(fileContents);
 }
 
+async function getAfterwordContent(): Promise<string> {
+  const filePath = path.join(process.cwd(), '..', 'blog', '編集後記.md');
+  return fs.readFileSync(filePath, 'utf8');
+}
+
 export default async function Home() {
   const data = await getData();
+  const afterwordContent = await getAfterwordContent();
 
   return (
     <main className="min-h-screen bg-slate-900 text-white font-sans selection:bg-cyan-500/30">
-      <DashboardContent data={data} />
+      <DashboardContent data={data} afterwordContent={afterwordContent} />
     </main>
   );
 }

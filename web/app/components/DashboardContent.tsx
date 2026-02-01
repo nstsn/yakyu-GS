@@ -1,15 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import DashboardWrapper from './DashboardWrapper';
 import AfterwordModal from './AfterwordModal';
 
 type DashboardContentProps = {
     data: any;
+    afterwordContent: string;
 };
 
-export default function DashboardContent({ data }: DashboardContentProps) {
+export default function DashboardContent({ data, afterwordContent }: DashboardContentProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const gsStats = data.stats.overall.find((s: any) => s.is_grandslam === true);
@@ -184,6 +184,38 @@ export default function DashboardContent({ data }: DashboardContentProps) {
                         </div>
                     </section>
 
+                    {/* Timeline of Analysis Section (RESTORED) */}
+                    <section className="space-y-8 animate-reveal">
+                        <div className="flex items-center gap-3">
+                            <span className="w-2 h-8 bg-cyan-500 rounded-full"></span>
+                            <h3 className="text-2xl font-bold">検証データの詳細 (一部抜粋)</h3>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {data.events.slice(0, 12).map((event: any, idx: number) => (
+                                <div key={idx} className="bg-slate-800/40 border border-white/5 rounded-2xl p-6 hover:bg-slate-800/60 transition-all group">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div className="text-xs font-mono text-slate-500">{event.date} @ {event.ballpark || 'Unknown'}</div>
+                                        <div className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${event.is_grandslam ? 'bg-orange-500/20 text-orange-400' : 'bg-slate-700 text-slate-400'}`}>
+                                            {event.is_grandslam ? 'Grand Slam' : 'Big Inning'}
+                                        </div>
+                                    </div>
+                                    <div className="text-lg font-bold text-white mb-2">{event.team}</div>
+                                    <div className="flex items-center gap-4 text-sm text-slate-400">
+                                        <div>
+                                            <span className="text-[10px] block uppercase tracking-tighter text-slate-500 mb-0.5">その後の得点</span>
+                                            <span className="text-white font-bold text-base">{event.post_inning_runs_1to9}</span>
+                                        </div>
+                                        <div>
+                                            <span className="text-[10px] block uppercase tracking-tighter text-slate-500 mb-0.5">残イニング</span>
+                                            <span className="text-slate-300 font-bold">{event.remaining_off_innings_1to9}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
                     {/* Analysis Report Section */}
                     <section className="bg-slate-800/50 border border-white/10 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-40 bg-emerald-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
@@ -223,6 +255,28 @@ export default function DashboardContent({ data }: DashboardContentProps) {
                                         </svg>
                                     </button>
                                 </div>
+
+                                {/* Future Work / Deep Dive (RESTORED) */}
+                                <div className="mt-20 pt-10 border-t border-white/10">
+                                    <h4 className="text-xl font-bold text-slate-400 mb-6 flex items-center gap-2">
+                                        <span className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></span>
+                                        今後の検証課題
+                                    </h4>
+                                    <ul className="space-y-4 text-slate-400 list-none p-0">
+                                        <li className="flex gap-3">
+                                            <span className="text-cyan-500 font-bold">・</span>
+                                            <span>ビジター・ホームでの「勢い」の持続性の違い</span>
+                                        </li>
+                                        <li className="flex gap-3">
+                                            <span className="text-cyan-500 font-bold">・</span>
+                                            <span>失点した直後のイニングでの「取り返し」発生率</span>
+                                        </li>
+                                        <li className="flex gap-3">
+                                            <span className="text-cyan-500 font-bold">・</span>
+                                            <span>球場（ドーム・野外）による打撃モメンタムの影響</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </article>
                         </div>
                     </section>
@@ -232,14 +286,14 @@ export default function DashboardContent({ data }: DashboardContentProps) {
                         <div className="flex justify-center gap-6 mb-4">
                             <button onClick={() => setIsModalOpen(true)} className="text-slate-500 hover:text-emerald-400 transition-colors cursor-pointer">編集後記 (Afterword)</button>
                             <span className="text-slate-800">|</span>
-                            <a href="https://github.com/pluckhahn/yakyuu" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-400 transition-colors">Project Source</a>
+                            <a href="https://github.com/nstsn/yakyu-GS" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-400 transition-colors">Project Source</a>
                         </div>
                         <p>© 2026 NPB Grand Slam Analysis Project.</p>
                     </footer>
                 </div>
             </div>
 
-            <AfterwordModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <AfterwordModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} content={afterwordContent} />
         </DashboardWrapper>
     );
 }
