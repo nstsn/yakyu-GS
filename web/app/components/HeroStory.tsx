@@ -26,15 +26,31 @@ export default function HeroStory({ onComplete }: HeroStoryProps) {
 
     const advanceStep = useCallback(() => {
         const now = Date.now();
-        if (now - lastScrollTime.current < 800) return; // Debounce
+        console.log(`[HeroStory] advanceStep called. Step: ${step}, Global lastScroll: ${lastScrollTime.current}, Now: ${now}, Diff: ${now - lastScrollTime.current}`);
+
+        if (now - lastScrollTime.current < 800) {
+            console.log(`[HeroStory] advanceStep debounced.`);
+            return;
+        }
 
         if (step < 3) {
+            console.log(`[HeroStory] moving from ${step} to ${step + 1}`);
             setStep((prev) => prev + 1);
             lastScrollTime.current = now;
         } else if (step === 3) {
+            console.log(`[HeroStory] step 3 complete. calling onComplete.`);
             onComplete();
         }
     }, [step, onComplete]);
+
+    // For manual debugging in console
+    useEffect(() => {
+        (window as any).advanceHeroStep = advanceStep;
+        console.log("[HeroStory] mounted. current step:", step);
+        return () => {
+            delete (window as any).advanceHeroStep;
+        };
+    }, [advanceStep, step]);
 
     const regressStep = useCallback(() => {
         const now = Date.now();

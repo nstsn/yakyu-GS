@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import HeroStory from './HeroStory';
 
 type DashboardWrapperProps = {
@@ -9,6 +9,11 @@ type DashboardWrapperProps = {
 
 export default function DashboardWrapper({ children }: DashboardWrapperProps) {
     const [showIntro, setShowIntro] = useState(true);
+
+    const completeIntro = useCallback(() => {
+        console.log("[DashboardWrapper] completeIntro called");
+        setShowIntro(false);
+    }, []);
 
     const setupObserver = (node: HTMLDivElement) => {
         if (!node) return;
@@ -35,7 +40,7 @@ export default function DashboardWrapper({ children }: DashboardWrapperProps) {
     if (showIntro) {
         return (
             <HeroStory
-                onComplete={() => setShowIntro(false)}
+                onComplete={completeIntro}
             />
         );
     }

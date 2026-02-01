@@ -4,7 +4,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "export",
   basePath: "/yakyu-GS",
-  assetPrefix: "/yakyu-GS",
   images: {
     unoptimized: true,
   },
