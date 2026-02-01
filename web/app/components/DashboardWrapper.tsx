@@ -5,11 +5,10 @@ import HeroStory from './HeroStory';
 
 type DashboardWrapperProps = {
     children: React.ReactNode;
-    skipIntro?: boolean;
 };
 
-export default function DashboardWrapper({ children, skipIntro = false }: DashboardWrapperProps) {
-    const [showIntro, setShowIntro] = useState(!skipIntro);
+export default function DashboardWrapper({ children }: DashboardWrapperProps) {
+    const [showIntro, setShowIntro] = useState(true);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
