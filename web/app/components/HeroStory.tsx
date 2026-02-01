@@ -8,8 +8,13 @@ type HeroStoryProps = {
 
 export default function HeroStory({ onComplete }: HeroStoryProps) {
     const [step, setStep] = useState(1);
+    const [mounted, setMounted] = useState(false);
     const lastScrollTime = useRef(0);
     const touchStartY = useRef<number | null>(null);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         let timer: NodeJS.Timeout;
@@ -106,6 +111,8 @@ export default function HeroStory({ onComplete }: HeroStoryProps) {
     const handleScreenClick = () => {
         advanceStep();
     };
+
+    if (!mounted) return <section className="fixed inset-0 bg-slate-950" />;
 
     return (
         <section

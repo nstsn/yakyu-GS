@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import HeroStory from './HeroStory';
 
 type DashboardWrapperProps = {
@@ -9,6 +9,11 @@ type DashboardWrapperProps = {
 
 export default function DashboardWrapper({ children }: DashboardWrapperProps) {
     const [showIntro, setShowIntro] = useState(true);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const completeIntro = useCallback(() => {
         console.log("[DashboardWrapper] completeIntro called");
@@ -36,6 +41,8 @@ export default function DashboardWrapper({ children }: DashboardWrapperProps) {
         const targets = node.querySelectorAll('.animate-reveal, .animate-grow-x');
         targets.forEach(t => observer.observe(t));
     };
+
+    if (!mounted) return null;
 
     if (showIntro) {
         return (
