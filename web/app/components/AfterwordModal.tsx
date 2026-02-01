@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 type AfterwordModalProps = {
@@ -10,6 +10,8 @@ type AfterwordModalProps = {
 };
 
 export default function AfterwordModal({ isOpen, onClose, content }: AfterwordModalProps) {
+    const contentRef = useRef<HTMLDivElement>(null);
+
     // ESCキーでモーダルを閉じる
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
@@ -33,6 +35,61 @@ export default function AfterwordModal({ isOpen, onClose, content }: AfterwordMo
             document.body.style.overflow = 'unset';
         };
     }, [isOpen]);
+
+    // スクロールアニメーション
+    useEffect(() => {
+        if (!isOpen || !contentRef.current) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '100px 0px 100px 0px',
+            }
+        );
+
+        // 見出し要素を文字単位でラップ
+        const headings = contentRef.current.querySelectorAll('h3, h4');
+        headings.forEach((heading) => {
+            const text = heading.textContent || '';
+            heading.innerHTML = '';
+
+            // 絵文字を正しく分割するためにSegmenterを使用
+            const segmenter = new Intl.Segmenter('ja', { granularity: 'grapheme' });
+            const segments = Array.from(segmenter.segment(text));
+
+            segments.forEach((segment, index) => {
+                const char = segment.segment;
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.classList.add('opacity-0', 'translate-y-4', 'inline-block');
+                span.style.animationDelay = `${index * 0.03}s`;
+                heading.appendChild(span);
+                observer.observe(span);
+            });
+        });
+
+        // その他の要素は要素単位で監視
+        const otherElements = contentRef.current.querySelectorAll('p, ul, li, div.border-t, strong, a');
+        otherElements.forEach((el) => {
+            el.classList.add('opacity-0', 'translate-y-4');
+            observer.observe(el);
+        });
+
+        return () => {
+            headings.forEach((heading) => {
+                const spans = heading.querySelectorAll('span');
+                spans.forEach((span) => observer.unobserve(span));
+            });
+            otherElements.forEach((el) => observer.unobserve(el));
+        };
+    }, [isOpen, content]);
 
     if (!isOpen) return null;
 
@@ -69,7 +126,22 @@ export default function AfterwordModal({ isOpen, onClose, content }: AfterwordMo
                 </div>
 
                 {/* Content */}
-                <div className="overflow-y-auto max-h-[calc(85vh-88px)] px-8 py-8 bg-slate-50">
+                <div ref={contentRef} className="overflow-y-auto max-h-[calc(85vh-88px)] px-8 py-8 bg-slate-50">
+                    <style jsx global>{`
+                        @keyframes fadeInUp {
+                            from {
+                                opacity: 0;
+                                transform: translateY(20px);
+                            }
+                            to {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
+                        }
+                        .animate-fade-in-up {
+                            animation: fadeInUp 0.6s ease-out forwards;
+                        }
+                    `}</style>
                     <article className="prose prose-slate max-w-none">
                         <ReactMarkdown
                             components={{
@@ -80,13 +152,13 @@ export default function AfterwordModal({ isOpen, onClose, content }: AfterwordMo
                                     <h4 className="text-lg font-semibold text-slate-600 mb-3 mt-6">{children}</h4>
                                 ),
                                 p: ({ children }) => (
-                                    <p className="text-slate-600 leading-relaxed mb-4">{children}</p>
+                                    <p className="text-slate-600 leading-relaxed mb-2 mt-4">{children}</p>
                                 ),
                                 strong: ({ children }) => (
                                     <strong className="text-slate-800 font-bold">{children}</strong>
                                 ),
                                 ul: ({ children }) => (
-                                    <ul className="list-disc list-inside space-y-2 text-slate-600 mb-4">{children}</ul>
+                                    <ul className="list-disc list-inside space-y-2 text-slate-600 mb-6">{children}</ul>
                                 ),
                                 li: ({ children }) => (
                                     <li className="text-slate-600">{children}</li>
