@@ -21,5 +21,3 @@ docs/PRD.md
 # Data Files (Raw data is not to be distributed)
 *.db
 *.sqlite3
-data.json
-web/public/data.json
