@@ -60,7 +60,7 @@ async function getData(): Promise<DashboardData> {
 }
 
 async function getAfterwordContent(): Promise<string> {
-  const filePath = path.join(process.cwd(), '..', 'blog', 'afterword.md');
+  const filePath = path.join(process.cwd(), 'public', 'afterword.md');
   const content = fs.readFileSync(filePath, 'utf8');
   return content;
 }
