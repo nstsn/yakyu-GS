@@ -112,8 +112,6 @@ export default function HeroStory({ onComplete }: HeroStoryProps) {
         advanceStep();
     };
 
-    if (!mounted) return <section className="fixed inset-0 bg-slate-950" />;
-
     return (
         <section
             onClick={handleScreenClick}

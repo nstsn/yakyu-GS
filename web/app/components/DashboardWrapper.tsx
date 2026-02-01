@@ -42,8 +42,6 @@ export default function DashboardWrapper({ children }: DashboardWrapperProps) {
         targets.forEach(t => observer.observe(t));
     };
 
-    if (!mounted) return null;
-
     if (showIntro) {
         return (
             <HeroStory
