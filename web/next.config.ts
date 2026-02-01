@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 // Config for GitHub Pages deployment
 const nextConfig: NextConfig = {
-  /* config options here */
+  basePath: '/yakyu-GS',
   images: {
     unoptimized: true,
   },

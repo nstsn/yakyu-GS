@@ -485,6 +485,22 @@ export default async function Home() {
                     「再着火のサインを見逃すな！」
                   </p>
 
+                  {/* Editorial Afterword CTA */}
+                  <div className="mt-16 pt-12 border-t border-white/10 text-center animate-reveal stagger-1">
+                    <p className="text-slate-400 mb-6 font-light italic">
+                      検証の結果から、私たちは何を感じ、何を学ぶべきか。
+                    </p>
+                    <Link
+                      href="/blog/henshugoki"
+                      className="inline-flex items-center gap-4 px-10 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 font-bold rounded-full hover:scale-105 transition-all shadow-[0_10px_30px_rgba(16,185,129,0.3)] group"
+                    >
+                      編集後記：データが教える習慣化の秘訣
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Link>
+                  </div>
+
                   {/* Future Work / Deep Dive */}
                   <div className="mt-20 pt-10 border-t border-white/10">
                     <h4 className="text-xl font-bold text-slate-400 mb-6 flex items-center gap-2">
@@ -587,6 +603,11 @@ export default async function Home() {
 
           {/* Footer */}
           <footer className="py-12 text-center text-slate-600 text-sm border-t border-white/5 mt-12 bg-slate-950/20 backdrop-blur-sm">
+            <div className="flex justify-center gap-6 mb-4">
+              <Link href="/blog/henshugoki" className="text-slate-500 hover:text-emerald-400 transition-colors">編集後記 (Afterword)</Link>
+              <span className="text-slate-800">|</span>
+              <a href="https://github.com/pluckhahn/yakyuu" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-cyan-400 transition-colors">Project Source</a>
+            </div>
             <p>© 2026 NPB Grand Slam Analysis Project.</p>
             <div className="mt-4 space-y-1 text-[10px] md:text-xs">
               <p>
