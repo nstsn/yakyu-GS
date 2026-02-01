@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { afterwordContent } from './lib/afterwordData';
 import Link from 'next/link';
 import DashboardWrapper from './components/DashboardWrapper';
 import AfterwordButton from './components/AfterwordButton';
@@ -59,15 +60,9 @@ async function getData(): Promise<DashboardData> {
   return JSON.parse(fileContents);
 }
 
-async function getAfterwordContent(): Promise<string> {
-  const filePath = path.join(process.cwd(), 'public', 'afterword.md');
-  const content = fs.readFileSync(filePath, 'utf8');
-  return content;
-}
-
 export default async function Home() {
   const data = await getData();
-  const afterwordContent = await getAfterwordContent();
+  // afterwordContent は import 済み
 
   const gsStats = data.stats.overall.find((s) => s.is_grandslam === true);
   const nonGsStats = data.stats.overall.find((s) => s.is_grandslam === false);

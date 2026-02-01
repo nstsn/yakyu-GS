@@ -1,4 +1,4 @@
-## ⚾ このプロジェクトについて
+export const afterwordContent = `## ⚾ このプロジェクトについて
 
 「満塁ホームランが出た試合って、そのあとあんまり点入らないなあ」
 
@@ -87,3 +87,4 @@ NPBファンなら絶対に楽しめる素晴らしいサイトなので、ぜ�
 
 データ提供: [Lukas Pluckhahn (yakyuu.jp)](https://yakyuu.jp/)  
 使用したツール: Antigravity, Github, Vercel
+`;
