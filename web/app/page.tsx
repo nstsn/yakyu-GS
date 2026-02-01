@@ -1,6 +1,5 @@
-import fs from 'fs';
-import path from 'path';
 import { afterwordContent } from './lib/afterwordData';
+import data from '../public/data.json';
 import Link from 'next/link';
 import DashboardWrapper from './components/DashboardWrapper';
 import AfterwordButton from './components/AfterwordButton';
@@ -52,16 +51,12 @@ type DashboardData = {
   events: EventData[];
 };
 
-async function getData(): Promise<DashboardData> {
-  const filePath = path.join(process.cwd(), 'public', 'data.json');
-  // In a real app we might want error handling here, but for this demo simple read is fine.
-  // If multiple reads are needed, caching or using a proper data fetching strat is better.
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  return JSON.parse(fileContents);
-}
+// Vercel上のfsパス問題を回避するため、ビルド時にJSONをバンドル
+const dashboardData = data as DashboardData;
 
 export default async function Home() {
-  const data = await getData();
+  // dashboardData を直接使用
+  const data = dashboardData;
   // afterwordContent は import 済み
 
   const gsStats = data.stats.overall.find((s) => s.is_grandslam === true);
